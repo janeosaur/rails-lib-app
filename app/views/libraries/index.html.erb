@@ -1,6 +1,6 @@
 <% @libraries.each do |library| %>
 <div class="">
-  <h3> <%= library.name %> </h3>
+  <h3> <%= link_to library.name, library_path(library) %> </h3>
 </div>
 <br>
 <% end %>
