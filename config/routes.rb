@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
+  get "/libraries", to: "libraries#index"
+
 end
