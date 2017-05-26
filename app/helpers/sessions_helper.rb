@@ -21,7 +21,10 @@ module SessionsHelper
   end
 
   def require_ownership
-    current_user.id == params[:id].to_i
+    if current_user.nil? || current_user.id != params[:id].to_i
+      flash[:error] = "you don't have access to this page"
+      redirect_to user_path(current_user.id)
+    end
     # if current_user.id == params[:id].to_i
     #   @user = User.find(params[:id])
     #   render :show
