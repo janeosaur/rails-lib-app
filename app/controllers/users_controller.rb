@@ -19,13 +19,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     render :show
-
-    # if current_user.id == params[:id].to_i
-    #   @user = User.find(params[:id])
-    #   render :show
-    # else
-    #   redirect_to root_path
-    # end
   end
 
   private

@@ -1,3 +1,9 @@
 <div>
-  Welcome, <%= @user.first_name %>!
+  <!-- Welcome, <%= @user.first_name %>! -->
+  These are your libraries
+  <% @user.libraries.each do |library|%>
+    <ul>
+      <li><%=link_to library.name, library_path(library) %></li>
+    </ul>
+    <% end %>
 </div>
