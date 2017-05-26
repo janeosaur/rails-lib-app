@@ -14,17 +14,20 @@ module SessionsHelper
   end
 
   def logged_in?
-    # implicit return:
-    # if someone's logged in... let them see profile page.
-    # if not... (current user = nil).. redirect to root
-    # if @current_user
-    #   redirect_to user_path(current_user)
+    if current_user.nil?
+      flash[:error] = "sorry you must be logged in"
+      redirect_to root_path
+    end
+  end
+
+  def require_ownership
+    current_user.id == params[:id].to_i
+    # if current_user.id == params[:id].to_i
+    #   @user = User.find(params[:id])
+    #   render :show
     # else
     #   redirect_to root_path
     # end
-
-    #to check whether there is a current user.
-    !current_user.nil?
   end
 
 end
