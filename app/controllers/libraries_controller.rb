@@ -1,5 +1,7 @@
 class LibrariesController < ApplicationController
 
+  before_action :logged_in?, only: [:new]
+
   def index
     @libraries = Library.all
   end

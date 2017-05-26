@@ -19,8 +19,12 @@
       <% end %>
     </ul>
 
-    <h1> <%= current_user.first_name%>
-      <%= current_user.last_name %></h1>
+    <h1>
+      <% if current_user %>
+        <%= current_user.first_name%>
+        <%= current_user.last_name %>
+      <% end %>
+    </h1>
 
     <% flash.each do |name, msg| %>
       <p>
